@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Matheus Yamashita Curti</title>
+    <meta name="description" content="Fale com Matheus Yamashita Curti sobre projetos de visão computacional industrial e desenvolvimento.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="topo">
+        <div class="topo__interno">
+            <a class="marca" href="index.html">
+                <span class="marca__nome">Matheus Yamashita</span>
+                <span class="marca__papel">Visão computacional industrial</span>
+            </a>
+
+            <button class="btn-menu" id="btnMenu" aria-expanded="false" aria-controls="navPrincipal" aria-label="Abrir menu de navegação">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="navPrincipal" aria-label="Navegação principal">
+                <ul class="nav__lista">
+                    <li><a class="nav__link" href="index.html">Sobre mim</a></li>
+                    <li><a class="nav__link" href="formacao.html">Formação</a></li>
+                    <li><a class="nav__link" href="portfolio.html">Portfólio</a></li>
+                    <li><a class="nav__link" href="contato.html" aria-current="page">Contato</a></li>
+                </ul>
+                <button class="btn-tema" id="btnTema" type="button">Tema escuro</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <section class="secao">
+            <div class="container">
+                <p class="dado dado--sinal">Canal aberto</p>
+                <h1 style="margin: 1rem 0 1.5rem;">Contato</h1>
+                <p class="abertura__resumo">
+                    Tem um problema de inspeção que ainda não fecha, ou quer conversar sobre um
+                    projeto? Escreva abaixo que eu respondo.
+                </p>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             FORMULÁRIO
+             O atributo novalidate desliga as mensagens padrão do
+             navegador para que a validação em JavaScript assuma
+             o controle e exiba os erros no visual do site.
+             ===================================================== -->
+        <section class="secao" style="padding-top: 0;">
+            <div class="container">
+                <div class="secao__cabecalho">
+                    <span class="dado">01</span>
+                    <h2>Envie uma mensagem</h2>
+                </div>
+
+                <form class="formulario revelar" id="formContato" novalidate>
+
+                    <div class="campo">
+                        <label class="campo__rotulo" for="nome">Nome</label>
+                        <input class="campo__entrada" type="text" id="nome" name="nome"
+                               placeholder="Como devo te chamar" autocomplete="name">
+                        <p class="campo__erro" role="alert"></p>
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__rotulo" for="email">E-mail</label>
+                        <input class="campo__entrada" type="email" id="email" name="email"
+                               placeholder="nome@dominio.com" autocomplete="email">
+                        <p class="campo__erro" role="alert"></p>
+                    </div>
+
+                    <div class="campo">
+                        <label class="campo__rotulo" for="mensagem">Mensagem</label>
+                        <textarea class="campo__entrada" id="mensagem" name="mensagem"
+                                  placeholder="Conte o que você precisa"></textarea>
+                        <p class="campo__erro" role="alert"></p>
+                    </div>
+
+                    <button class="botao" type="submit">Enviar mensagem</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             OUTROS CANAIS
+             SUBSTITUA pelos seus dados reais.
+             ===================================================== -->
+        <section class="secao">
+            <div class="container">
+                <div class="secao__cabecalho">
+                    <span class="dado">02</span>
+                    <h2>Onde me encontrar</h2>
+                </div>
+
+                <div class="grade revelar">
+                    <div class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">E-mail</p>
+                        <h3 class="cartao__titulo">
+                            <a href="mailto:[matheus.yama18@gmail.com]" style="text-decoration: none;">[matheus.yama18@gmail.com]</a>
+                        </h3>
+                    </div>
+
+                    <div class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">GitHub</p>
+                        <h3 class="cartao__titulo">
+                            <a href="https://github.com/mathezydev" target="_blank" rel="noopener" style="text-decoration: none;">/mathezydev</a>
+                        </h3>
+                    </div>
+
+                    <div class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">Localização</p>
+                        <h3 class="cartao__titulo">Santa Bárbara d'Oeste / SP</h3>
+                        <p class="cartao__texto" style="margin-top: 0.5rem;">
+                            Disponível para atendimento em campo na região metropolitana de Campinas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================
+         MODAL DE CONFIRMAÇÃO
+         Fica oculto até que o formulário passe na validação.
+         ===================================================== -->
+    <div class="modal" id="modalSucesso" data-aberto="false" role="dialog" aria-modal="true" aria-labelledby="tituloModal">
+        <div class="modal__caixa roi">
+            <p class="dado dado--sinal">Aprovado</p>
+            <h2 class="modal__titulo" id="tituloModal">Mensagem enviada com sucesso!</h2>
+            <p class="modal__texto">
+                Obrigado pelo contato. Retorno assim que possível.
+            </p>
+            <button class="botao botao--vazado" type="button" id="btnFecharModal">Fechar</button>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <div class="container rodape__interno">
+            <p class="dado">&#169; <span id="anoAtual">2026</span> Matheus Yamashita Curti</p>
+            <div class="rodape__links">
+                <a href="https://github.com/mathezydev" target="_blank" rel="noopener">GitHub</a>
+                <a href="index.html">Início</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

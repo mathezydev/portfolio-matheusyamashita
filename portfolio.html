@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Matheus Yamashita Curti</title>
+    <meta name="description" content="Projetos de visão computacional industrial e desenvolvimento realizados por Matheus Yamashita Curti.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="topo">
+        <div class="topo__interno">
+            <a class="marca" href="index.html">
+                <span class="marca__nome">Matheus Yamashita</span>
+                <span class="marca__papel">Visão computacional industrial</span>
+            </a>
+
+            <button class="btn-menu" id="btnMenu" aria-expanded="false" aria-controls="navPrincipal" aria-label="Abrir menu de navegação">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="navPrincipal" aria-label="Navegação principal">
+                <ul class="nav__lista">
+                    <li><a class="nav__link" href="index.html">Sobre mim</a></li>
+                    <li><a class="nav__link" href="formacao.html">Formação</a></li>
+                    <li><a class="nav__link" href="portfolio.html" aria-current="page">Portfólio</a></li>
+                    <li><a class="nav__link" href="contato.html">Contato</a></li>
+                </ul>
+                <button class="btn-tema" id="btnTema" type="button">Tema escuro</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <section class="secao">
+            <div class="container">
+                <p class="dado dado--sinal">Trabalhos realizados</p>
+                <h1 style="margin: 1rem 0 1.5rem;">Portfólio</h1>
+                <p class="abertura__resumo">
+                    Projetos de campo em linhas de produção e exercícios de desenvolvimento
+                    construídos durante a graduação. Por acordo de confidencialidade, os
+                    clientes industriais são descritos pelo setor, sem identificação nominal.
+                </p>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             PROJETOS INDUSTRIAIS
+             SUBSTITUA pelos seus projetos reais e ajuste os
+             detalhes que puder divulgar.
+             ===================================================== -->
+        <section class="secao" style="padding-top: 0;">
+            <div class="container">
+                <div class="secao__cabecalho">
+                    <span class="dado">01</span>
+                    <h2>Projetos industriais</h2>
+                </div>
+
+                <div class="grade revelar">
+                    <article class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">Setor automotivo</p>
+                        <h3 class="cartao__titulo">Inspeção de superfície em chapa metálica</h3>
+                        <p class="cartao__texto">
+                            Instalação e calibração de câmeras <em>line scan</em> para detecção de
+                            riscos e deformações em chapas. O trabalho envolveu definição do campo
+                            de visão, projeto dos suportes mecânicos, ligação dos gatilhos junto ao
+                            CLP e treinamento de um modelo de segmentação por <em>deep learning</em>,
+                            refinado a cada nova leva de imagens coletadas na linha.
+                        </p>
+                        <div class="etiquetas">
+                            <span class="etiqueta">Line scan</span>
+                            <span class="etiqueta">Deep learning</span>
+                            <span class="etiqueta">Segmentação</span>
+                            <span class="etiqueta">Integração CLP</span>
+                        </div>
+                    </article>
+
+                    <article class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">Bens de consumo</p>
+                        <h3 class="cartao__titulo">Verificação de rótulo e código em embalagem</h3>
+                        <p class="cartao__texto">
+                            Configuração de inspeção para conferir presença, posição e legibilidade
+                            de rótulos e códigos em embalagens. O desafio principal foi manter a
+                            leitura estável em impressão <em>inkjet</em> sobre superfície irregular,
+                            resolvido com pré-processamento morfológico e limiarização adaptativa
+                            antes da etapa de OCR.
+                        </p>
+                        <div class="etiquetas">
+                            <span class="etiqueta">Keyence CV-X</span>
+                            <span class="etiqueta">OCR</span>
+                            <span class="etiqueta">Verificação de código</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             PROJETOS DE DESENVOLVIMENTO
+             ===================================================== -->
+        <section class="secao">
+            <div class="container">
+                <div class="secao__cabecalho">
+                    <span class="dado">02</span>
+                    <h2>Projetos de desenvolvimento</h2>
+                </div>
+
+                <div class="grade revelar">
+                    <article class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">Front-end</p>
+                        <h3 class="cartao__titulo">Este portfólio</h3>
+                        <p class="cartao__texto">
+                            Site de quatro páginas construído do zero em HTML5, CSS3 e JavaScript,
+                            sem nenhum framework. Inclui alternância de tema claro e escuro com
+                            preferência salva no navegador, menu responsivo e validação de
+                            formulário no lado do cliente.
+                        </p>
+                        <div class="etiquetas">
+                            <span class="etiqueta">HTML5</span>
+                            <span class="etiqueta">CSS3</span>
+                            <span class="etiqueta">JavaScript</span>
+                        </div>
+                        <p style="margin-top: 1.1rem;">
+                            <a class="dado dado--sinal" href="https://github.com/mathezydev/portfolio-matheusyamashita" target="_blank" rel="noopener">Ver código no GitHub &#8594;</a>
+                        </p>
+                    </article>
+
+                    <article class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">Banco de dados</p>
+                        <h3 class="cartao__titulo">Sistema de ordens de serviço</h3>
+                        <p class="cartao__texto">
+                            Modelagem e implementação de um banco relacional para controle de
+                            ordens de serviço, com seis tabelas, chaves estrangeiras, tabela
+                            associativa e consultas com junções e agrupamento para apuração de
+                            valores por ordem.
+                        </p>
+                        <div class="etiquetas">
+                            <span class="etiqueta">MySQL</span>
+                            <span class="etiqueta">Modelagem ER</span>
+                            <span class="etiqueta">SQL</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <div class="container rodape__interno">
+            <p class="dado">&#169; <span id="anoAtual">2026</span> Matheus Yamashita Curti</p>
+            <div class="rodape__links">
+                <a href="https://github.com/mathezydev" target="_blank" rel="noopener">GitHub</a>
+                <a href="contato.html">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

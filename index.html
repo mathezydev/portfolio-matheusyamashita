@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mim | Matheus Yamashita Curti</title>
+    <meta name="description" content="Portfólio pessoal de Matheus Yamashita Curti, especialista técnico em visão computacional industrial e controle de qualidade.">
+
+    <!-- Fontes: Archivo para títulos e texto, IBM Plex Mono para as leituras técnicas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <!-- Atalho de acessibilidade: aparece ao navegar por teclado -->
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- =====================================================
+         CABEÇALHO — repetido em todas as páginas do site
+         ===================================================== -->
+    <header class="topo">
+        <div class="topo__interno">
+            <a class="marca" href="index.html">
+                <span class="marca__nome">Matheus Yamashita</span>
+                <span class="marca__papel">Visão computacional industrial</span>
+            </a>
+
+            <button class="btn-menu" id="btnMenu" aria-expanded="false" aria-controls="navPrincipal" aria-label="Abrir menu de navegação">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="navPrincipal" aria-label="Navegação principal">
+                <ul class="nav__lista">
+                    <li><a class="nav__link" href="index.html" aria-current="page">Sobre mim</a></li>
+                    <li><a class="nav__link" href="formacao.html">Formação</a></li>
+                    <li><a class="nav__link" href="portfolio.html">Portfólio</a></li>
+                    <li><a class="nav__link" href="contato.html">Contato</a></li>
+                </ul>
+                <button class="btn-tema" id="btnTema" type="button">Tema escuro</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- =====================================================
+             ABERTURA
+             A cantoneira verde ao redor do nome reproduz o
+             marcador de região de interesse que um sistema de
+             visão desenha sobre a peça inspecionada.
+             ===================================================== -->
+        <section class="abertura">
+            <div class="container abertura__interno">
+                <p class="dado dado--sinal">Sistema de inspeção &#183; região de interesse localizada</p>
+
+                <h1 class="abertura__titulo roi">Matheus Yamashita Curti</h1>
+
+                <p class="abertura__resumo">
+                    Especialista técnico em visão computacional aplicada ao controle de
+                    qualidade industrial. Instalo, calibro e valido sistemas de inspeção
+                    em linhas de produção &mdash; das câmeras <em>line scan</em> aos modelos
+                    de <em>deep learning</em> que detectam defeitos que o olho humano deixa passar.
+                </p>
+
+                <a class="botao" href="portfolio.html">Ver projetos</a>
+                <a class="botao botao--vazado" href="contato.html">Entrar em contato</a>
+
+                <div class="leitura">
+                    <span class="leitura__item">
+                        <span class="dado">Base</span>
+                        <span class="leitura__valor">Santa Bárbara d'Oeste / SP</span>
+                    </span>
+                    <span class="leitura__item">
+                        <span class="dado">Atuação</span>
+                        <span class="leitura__valor">Campo e laboratório</span>
+                    </span>
+                    <span class="leitura__item">
+                        <span class="dado">Status</span>
+                        <span class="leitura__valor">Aberto a projetos</span>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             QUEM SOU
+             ===================================================== -->
+        <section class="secao">
+            <div class="container">
+                <div class="secao__cabecalho">
+                    <span class="dado">01</span>
+                    <h2>Quem sou</h2>
+                </div>
+
+                <div class="grade revelar">
+                    <div class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">O que eu faço</p>
+                        <h3 class="cartao__titulo">Inspeção que roda em produção</h3>
+                        <p class="cartao__texto">
+                            Meu trabalho começa onde a teoria encontra a linha de montagem.
+                            Vou a campo, posiciono câmeras, ajusto iluminação e campo de visão,
+                            configuro <em>triggers</em> junto ao CLP e fico até o sistema aprovar
+                            e reprovar as peças certas. Um algoritmo que acerta 99% no laboratório
+                            e gera falsas reprovas no turno da noite não serve para ninguém.
+                        </p>
+                    </div>
+
+                    <div class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">Como eu trabalho</p>
+                        <h3 class="cartao__titulo">Do parafuso ao modelo treinado</h3>
+                        <p class="cartao__texto">
+                            Gosto de projetos em que preciso resolver o problema mecânico e o
+                            problema de software na mesma visita: furar o suporte no lugar certo,
+                            resolver o cabeamento do gatilho e, depois, treinar o modelo de
+                            segmentação que vai encontrar riscos em chapa metálica. As duas
+                            metades precisam funcionar juntas.
+                        </p>
+                    </div>
+
+                    <div class="cartao roi roi--foco">
+                        <p class="dado cartao__meta">Por que programação</p>
+                        <h3 class="cartao__titulo">Fechando o ciclo</h3>
+                        <p class="cartao__texto">
+                            Anos configurando sistemas de visão me mostraram o quanto o software
+                            decide o resultado. Por isso voltei a estudar desenvolvimento: quero
+                            deixar de apenas parametrizar ferramentas prontas e passar a construir
+                            as interfaces, os relatórios e as integrações que faltam no chão de fábrica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             O QUE USO NO DIA A DIA
+             ===================================================== -->
+        <section class="secao">
+            <div class="container">
+                <div class="secao__cabecalho">
+                    <span class="dado">02</span>
+                    <h2>Ferramentas do dia a dia</h2>
+                </div>
+
+                <div class="grade revelar">
+                    <div class="cartao roi roi--foco">
+                        <h3 class="cartao__titulo">Plataformas de visão</h3>
+                        <p class="cartao__texto">Ambientes onde monto e valido as inspeções.</p>
+                        <div class="etiquetas">
+                            <span class="etiqueta">Matrox Aurora</span>
+                            <span class="etiqueta">Matrox Copilot</span>
+                            <span class="etiqueta">Keyence CV-X</span>
+                            <span class="etiqueta">pylon Viewer</span>
+                        </div>
+                    </div>
+
+                    <div class="cartao roi roi--foco">
+                        <h3 class="cartao__titulo">Hardware</h3>
+                        <p class="cartao__texto">Aquisição de imagem e integração elétrica.</p>
+                        <div class="etiquetas">
+                            <span class="etiqueta">Câmeras line scan</span>
+                            <span class="etiqueta">Câmeras de área</span>
+                            <span class="etiqueta">Iluminação industrial</span>
+                            <span class="etiqueta">CLP e triggers</span>
+                        </div>
+                    </div>
+
+                    <div class="cartao roi roi--foco">
+                        <h3 class="cartao__titulo">Desenvolvimento</h3>
+                        <p class="cartao__texto">O que venho construindo nos estudos.</p>
+                        <div class="etiquetas">
+                            <span class="etiqueta">HTML5</span>
+                            <span class="etiqueta">CSS3</span>
+                            <span class="etiqueta">JavaScript</span>
+                            <span class="etiqueta">SQL / MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             FORA DO TRABALHO
+             SUBSTITUA por hobbies reais seus.
+             ===================================================== -->
+        <section class="secao">
+            <div class="container">
+                <div class="secao__cabecalho">
+                    <span class="dado">03</span>
+                    <h2>Fora do trabalho</h2>
+                </div>
+
+                <div class="grade revelar">
+                    <div class="cartao roi roi--foco">
+                        <h3 class="cartao__titulo">Carros</h3>
+                        <p class="cartao__texto">
+                            Gosto de entender como as coisas são montadas, e carro é
+                            provavelmente o melhor exemplo disso. Acompanho mecânica,
+                            preparação e a parte de eletrônica embarcada &mdash; que hoje decide
+                            quase tanto quanto o motor.
+                        </p>
+                    </div>
+
+                    <div class="cartao roi roi--foco">
+                        <h3 class="cartao__titulo">Jogos</h3>
+                        <p class="cartao__texto">
+                            Foi jogando que apareceu a primeira curiosidade sobre computação:
+                            querer saber o que estava rodando por trás da tela. Continua sendo
+                            como eu desligo a cabeça no fim do dia.
+                        </p>
+                    </div>
+
+                    <div class="cartao roi roi--foco">
+                        <h3 class="cartao__titulo">Atividade física</h3>
+                        <p class="cartao__texto">
+                            Treino com regularidade. Trabalho de campo exige disposição para
+                            passar horas em pé numa linha de produção, e a rotina de treino
+                            ajuda a manter a cabeça no lugar entre um projeto e outro.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================
+         RODAPÉ — repetido em todas as páginas
+         ===================================================== -->
+    <footer class="rodape">
+        <div class="container rodape__interno">
+            <p class="dado">&#169; <span id="anoAtual">2026</span> Matheus Yamashita Curti</p>
+            <div class="rodape__links">
+                <a href="https://github.com/mathezydev" target="_blank" rel="noopener">GitHub</a>
+                <a href="contato.html">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
