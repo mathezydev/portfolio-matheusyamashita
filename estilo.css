@@ -1,0 +1,584 @@
+/* =========================================================
+   PORTFÓLIO PESSOAL — FOLHA DE ESTILO PRINCIPAL
+   CSS3 puro, sem frameworks.
+   A identidade visual é inspirada nas interfaces de sistemas
+   de inspeção por visão computacional: fundo com malha de
+   calibração, tipografia técnica e marcadores de ROI
+   (Region of Interest) em forma de cantoneiras.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. VARIÁVEIS DE TEMA
+   Definidas em :root para o tema claro. O tema escuro é
+   aplicado trocando o atributo data-tema no <html> via
+   JavaScript, o que reaproveita todas as regras abaixo.
+   --------------------------------------------------------- */
+:root {
+    --papel:        #F4F5F2;
+    --superficie:   #FFFFFF;
+    --tinta:        #16181A;
+    --tinta-suave:  #5D636B;
+    --linha:        #DDE0DB;
+    --malha:        rgba(22, 24, 26, 0.05);
+    --sinal:        #00764E; /* verde de overlay: peça aprovada */
+    --sinal-claro:  #00A86B;
+    --alerta:       #C0392B; /* vermelho de overlay: peça reprovada */
+
+    --fonte-titulo: "Archivo", "Arial Narrow", sans-serif;
+    --fonte-texto:  "Archivo", system-ui, sans-serif;
+    --fonte-dado:   "IBM Plex Mono", "Courier New", monospace;
+
+    --largura: 1080px;
+    --transicao: 220ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html[data-tema="escuro"] {
+    --papel:        #131619;
+    --superficie:   #1B1F23;
+    --tinta:        #EDEFEC;
+    --tinta-suave:  #99A1A9;
+    --linha:        #2C3238;
+    --malha:        rgba(237, 239, 236, 0.05);
+    --sinal:        #22C48A;
+    --sinal-claro:  #3FE0A4;
+    --alerta:       #F0645A;
+}
+
+/* ---------------------------------------------------------
+   2. RESET E BASE
+   --------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body, h1, h2, h3, p, ul, figure { margin: 0; padding: 0; }
+
+ul { list-style: none; }
+
+body {
+    background-color: var(--papel);
+    color: var(--tinta);
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color var(--transicao), color var(--transicao);
+}
+
+a { color: inherit; }
+
+img { max-width: 100%; display: block; }
+
+/* Foco visível para navegação por teclado (acessibilidade) */
+:focus-visible {
+    outline: 2px solid var(--sinal);
+    outline-offset: 3px;
+}
+
+/* Link que permite pular direto ao conteúdo, útil para leitores de tela */
+.pular {
+    position: absolute;
+    left: -9999px;
+}
+.pular:focus {
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    background: var(--sinal);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 2px;
+}
+
+/* ---------------------------------------------------------
+   3. TIPOGRAFIA
+   --------------------------------------------------------- */
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2.4rem, 7vw, 4.6rem); }
+h2 { font-size: clamp(1.6rem, 3.6vw, 2.3rem); }
+h3 { font-size: 1.1rem; letter-spacing: -0.01em; }
+
+/* Etiqueta técnica em fonte monoespaçada, usada como "leitura de instrumento" */
+.dado {
+    font-family: var(--fonte-dado);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+}
+
+.dado--sinal { color: var(--sinal); }
+
+/* ---------------------------------------------------------
+   4. LAYOUT GERAL
+   --------------------------------------------------------- */
+.container {
+    width: 100%;
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.secao { padding: 4.5rem 0; }
+
+.secao__cabecalho {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--linha);
+}
+
+/* ---------------------------------------------------------
+   5. CABEÇALHO E MENU DE NAVEGAÇÃO
+   O menu é fixo no topo e aparece igual em todas as páginas.
+   --------------------------------------------------------- */
+.topo {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--papel) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--linha);
+}
+
+.topo__interno {
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.marca {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+.marca__nome {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
+.marca__papel {
+    font-family: var(--fonte-dado);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+}
+
+.nav { display: flex; align-items: center; gap: 1.75rem; }
+
+.nav__lista { display: flex; gap: 1.5rem; }
+
+.nav__link {
+    position: relative;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+    color: var(--tinta-suave);
+    transition: color var(--transicao);
+}
+.nav__link:hover { color: var(--tinta); }
+
+/* Página atual: recebe a cor de sinal e um traço inferior */
+.nav__link[aria-current="page"] {
+    color: var(--sinal);
+    font-weight: 600;
+}
+.nav__link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.35rem;
+    height: 2px;
+    background: var(--sinal);
+}
+
+/* Botão de alternância de tema claro/escuro */
+.btn-tema {
+    background: none;
+    border: 1px solid var(--linha);
+    border-radius: 2px;
+    color: var(--tinta-suave);
+    font-family: var(--fonte-dado);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.45rem 0.7rem;
+    cursor: pointer;
+    transition: border-color var(--transicao), color var(--transicao);
+}
+.btn-tema:hover { border-color: var(--sinal); color: var(--sinal); }
+
+/* Botão sanduíche: só aparece em telas pequenas */
+.btn-menu {
+    display: none;
+    background: none;
+    border: 1px solid var(--linha);
+    border-radius: 2px;
+    padding: 0.5rem 0.55rem;
+    cursor: pointer;
+}
+.btn-menu span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--tinta);
+    transition: transform var(--transicao), opacity var(--transicao);
+}
+.btn-menu span + span { margin-top: 4px; }
+
+/* Animação do ícone quando o menu está aberto */
+.btn-menu[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.btn-menu[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.btn-menu[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ---------------------------------------------------------
+   6. ELEMENTO DE ASSINATURA: CANTONEIRAS DE ROI
+   Reproduz o marcador que um sistema de visão desenha ao
+   redor da região inspecionada de uma peça.
+   --------------------------------------------------------- */
+.roi { position: relative; }
+
+.roi::before,
+.roi::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--sinal);
+    transition: opacity var(--transicao), transform var(--transicao);
+}
+.roi::before {
+    top: -8px; left: -8px;
+    border-right: none;
+    border-bottom: none;
+}
+.roi::after {
+    bottom: -8px; right: -8px;
+    border-left: none;
+    border-top: none;
+}
+
+/* Nos cartões as cantoneiras ficam ocultas e só surgem ao
+   passar o mouse, como se o sistema tivesse localizado a peça */
+.roi--foco::before,
+.roi--foco::after { opacity: 0; transform: scale(1.35); }
+
+.roi--foco:hover::before,
+.roi--foco:hover::after,
+.roi--foco:focus-within::before,
+.roi--foco:focus-within::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ---------------------------------------------------------
+   7. ABERTURA DA PÁGINA INICIAL
+   --------------------------------------------------------- */
+.abertura {
+    position: relative;
+    padding: 5.5rem 0 4.5rem;
+    overflow: hidden;
+}
+
+/* Malha de calibração ao fundo, semelhante a um alvo de calibração de câmera */
+.abertura::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--malha) 1px, transparent 1px),
+        linear-gradient(90deg, var(--malha) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 70% 70% at 30% 40%, #000 20%, transparent 75%);
+    pointer-events: none;
+}
+
+.abertura__interno { position: relative; }
+
+.abertura__titulo {
+    display: inline-block;
+    margin: 1.25rem 0;
+}
+
+.abertura__resumo {
+    max-width: 54ch;
+    font-size: 1.08rem;
+    color: var(--tinta-suave);
+    margin-bottom: 2rem;
+}
+
+/* Linha de leitura técnica sob o nome */
+.leitura {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--linha);
+}
+.leitura__item { display: flex; gap: 0.5rem; }
+.leitura__valor { color: var(--tinta); font-family: var(--fonte-dado); font-size: 0.72rem; letter-spacing: 0.08em; }
+
+/* ---------------------------------------------------------
+   8. BOTÕES
+   --------------------------------------------------------- */
+.botao {
+    display: inline-block;
+    font-family: var(--fonte-dado);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem 1.6rem;
+    border: 2px solid var(--sinal);
+    border-radius: 2px;
+    background: var(--sinal);
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background var(--transicao), color var(--transicao);
+}
+.botao:hover { background: transparent; color: var(--sinal); }
+
+.botao--vazado {
+    background: transparent;
+    color: var(--sinal);
+}
+.botao--vazado:hover { background: var(--sinal); color: #FFFFFF; }
+
+/* ---------------------------------------------------------
+   9. CARTÕES E GRADES
+   --------------------------------------------------------- */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.cartao {
+    position: relative;
+    background: var(--superficie);
+    border: 1px solid var(--linha);
+    border-radius: 3px;
+    padding: 1.75rem;
+    transition: border-color var(--transicao), transform var(--transicao);
+}
+.cartao:hover {
+    border-color: var(--sinal);
+    transform: translateY(-3px);
+}
+
+.cartao__meta { margin-bottom: 0.6rem; }
+.cartao__titulo { margin-bottom: 0.5rem; }
+.cartao__texto { color: var(--tinta-suave); font-size: 0.95rem; }
+
+/* Lista de tecnologias em forma de etiquetas */
+.etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.1rem;
+}
+.etiqueta {
+    font-family: var(--fonte-dado);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.55rem;
+    border: 1px solid var(--linha);
+    border-radius: 2px;
+    color: var(--tinta-suave);
+}
+
+/* ---------------------------------------------------------
+   10. LINHA DO TEMPO (página de formação)
+   --------------------------------------------------------- */
+.linha-tempo { border-left: 2px solid var(--linha); padding-left: 1.75rem; }
+
+.linha-tempo__item {
+    position: relative;
+    padding-bottom: 2.5rem;
+}
+.linha-tempo__item:last-child { padding-bottom: 0; }
+
+/* Marcador circular sobre a linha vertical */
+.linha-tempo__item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.75rem - 6px);
+    top: 0.55rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--papel);
+    border: 2px solid var(--sinal);
+}
+
+/* ---------------------------------------------------------
+   11. FORMULÁRIO DE CONTATO
+   --------------------------------------------------------- */
+.formulario { max-width: 560px; }
+
+.campo { margin-bottom: 1.5rem; }
+
+.campo__rotulo {
+    display: block;
+    font-family: var(--fonte-dado);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tinta-suave);
+    margin-bottom: 0.5rem;
+}
+
+.campo__entrada {
+    width: 100%;
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    color: var(--tinta);
+    background: var(--superficie);
+    border: 1px solid var(--linha);
+    border-radius: 3px;
+    padding: 0.8rem 0.9rem;
+    transition: border-color var(--transicao);
+}
+.campo__entrada:focus { border-color: var(--sinal); outline: none; }
+
+textarea.campo__entrada { resize: vertical; min-height: 150px; }
+
+/* Estado de erro: reproduz a sinalização de reprovação do sistema de inspeção */
+.campo--erro .campo__entrada { border-color: var(--alerta); }
+
+.campo__erro {
+    display: none;
+    font-family: var(--fonte-dado);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--alerta);
+    margin-top: 0.4rem;
+}
+.campo--erro .campo__erro { display: block; }
+
+/* ---------------------------------------------------------
+   12. JANELA MODAL DE CONFIRMAÇÃO
+   --------------------------------------------------------- */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transicao), visibility var(--transicao);
+}
+.modal[data-aberto="true"] { opacity: 1; visibility: visible; }
+
+.modal__caixa {
+    position: relative;
+    background: var(--superficie);
+    border: 1px solid var(--linha);
+    border-radius: 3px;
+    padding: 2.5rem;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    transform: translateY(12px);
+    transition: transform var(--transicao);
+}
+.modal[data-aberto="true"] .modal__caixa { transform: translateY(0); }
+
+.modal__titulo { margin: 1rem 0 0.5rem; }
+.modal__texto { color: var(--tinta-suave); font-size: 0.95rem; margin-bottom: 1.75rem; }
+
+/* ---------------------------------------------------------
+   13. RODAPÉ
+   --------------------------------------------------------- */
+.rodape {
+    border-top: 1px solid var(--linha);
+    padding: 2.5rem 0;
+    margin-top: 3rem;
+}
+.rodape__interno {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.rodape__links { display: flex; gap: 1.25rem; }
+.rodape__links a {
+    text-decoration: none;
+    font-family: var(--fonte-dado);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--tinta-suave);
+    transition: color var(--transicao);
+}
+.rodape__links a:hover { color: var(--sinal); }
+
+/* ---------------------------------------------------------
+   14. ANIMAÇÃO DE ENTRADA
+   Os elementos entram suavemente conforme entram na tela,
+   controlados pelo IntersectionObserver do arquivo script.js.
+   --------------------------------------------------------- */
+.revelar {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 500ms ease, transform 500ms ease;
+}
+.revelar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------------------------------------------------------
+   15. RESPONSIVIDADE
+   --------------------------------------------------------- */
+@media (max-width: 760px) {
+    .btn-menu { display: block; }
+
+    /* O menu vira uma coluna que abre abaixo do cabeçalho */
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem 1.75rem;
+        background: var(--papel);
+        border-bottom: 1px solid var(--linha);
+        display: none;
+    }
+    .nav[data-aberto="true"] { display: flex; }
+
+    .nav__lista { flex-direction: column; gap: 0.9rem; width: 100%; }
+    .nav__link { font-size: 1rem; }
+
+    .secao { padding: 3rem 0; }
+    .abertura { padding: 3rem 0; }
+}
+
+/* Respeita quem prefere menos movimento na interface */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+    .revelar { opacity: 1; transform: none; }
+}
